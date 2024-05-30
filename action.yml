@@ -30,6 +30,8 @@ runs:
         MESSAGE=$(cat ${WRITE_FILE_PATH} | jq '.errors[]?.message')
         rm -rf ${WRITE_FILE_PATH}
 
-        if [ -n ${MESSAGE} ]; then
+        echo $MESSAGE
+
+        if [ -n "${MESSAGE}" ]; then
           exit 1
         fi
