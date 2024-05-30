@@ -21,10 +21,10 @@ runs:
         WRITE_FILE_PATH=__railway_redeploy__.json 
         
         curl -X POST \
-          --header="Authorization: Bearer ${{ inputs.railway_token }}" \
-          --header='Content-Type: application/json' \
+          -H "Authorization: Bearer ${{ inputs.railway_token }}" \
+          -H 'Content-Type: application/json' \
           'https://backboard.railway.app/graphql/v2' \
-          --data '{"query":"mutation serviceInstanceDeploy($environmentId: String!, $serviceId: String!) {\n  serviceInstanceDeploy(environmentId: $environmentId, serviceId: $serviceId)\n}","variables":{"environmentId":"'${INPUT_ENVIRONMENT_ID}'","serviceId":"'${INPUT_SERVICE_ID}'"}}' \
+          -d '{"query":"mutation serviceInstanceDeploy($environmentId: String!, $serviceId: String!) {\n  serviceInstanceDeploy(environmentId: $environmentId, serviceId: $serviceId)\n}","variables":{"environmentId":"'${INPUT_ENVIRONMENT_ID}'","serviceId":"'${INPUT_SERVICE_ID}'"}}' \
           | tee ${WRITE_FILE_PATH}
 
         MESSAGE=$(cat ${WRITE_FILE_PATH} | jq '.errors[]?.message')
