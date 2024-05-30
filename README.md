@@ -2,7 +2,7 @@ action-railway-redeploy
 ===
 
 
-Trigger reploy for railway, Inspired by [How to automatically re-deploy when a new docker image is published?]https://help.railway.app/questions/how-to-automatically-re-deploy-when-a-ne-c181402a()
+Trigger reploy for railway, Inspired by [How to automatically re-deploy when a new docker image is published?](https://help.railway.app/questions/how-to-automatically-re-deploy-when-a-ne-c181402a)
 
 
 ```
